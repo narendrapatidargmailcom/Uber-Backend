@@ -9,7 +9,6 @@ import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 import java.util.Date;
 
 @Entity
-@Table(name = "bookingreview")
 @Getter
 @Setter
 @AllArgsConstructor
@@ -24,6 +23,10 @@ public class Review extends BaseModel{
 
     private Double rating;
 
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(nullable = false)
+    private Booking booking;  //
+
     @LastModifiedDate
     @Temporal(TemporalType.TIMESTAMP)
     @Column(nullable = false)
@@ -33,5 +36,7 @@ public class Review extends BaseModel{
     @Temporal(TemporalType.TIMESTAMP) // TemporalType.TIMESTAMP store the date with time
     @Column(nullable = false)
     protected Date createdAt;
+
+
 
 }

@@ -26,10 +26,6 @@ public class Booking  extends BaseModel{
 
     private Long totalDistance;
 
-
-    @OneToOne(cascade = {CascadeType.REMOVE,CascadeType.PERSIST},fetch = FetchType.LAZY)
-    private Review review;  //
-
     @ManyToOne(fetch = FetchType.LAZY)
     private Passenger passenger;
 
