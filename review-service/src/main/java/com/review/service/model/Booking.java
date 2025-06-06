@@ -12,6 +12,7 @@ import java.util.Date;
 @Table(name = "booking")
 @AllArgsConstructor
 @NoArgsConstructor
+@ToString
 public class Booking  extends BaseModel{
 
     @Enumerated(EnumType.STRING)

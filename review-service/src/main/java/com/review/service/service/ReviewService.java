@@ -11,13 +11,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Date;
-import java.util.List;
+import java.util.*;
 
 @Service
-public class ReviewService implements CommandLineRunner {
+public class ReviewService  {
 
     @Autowired
     private ReviewRepository reviewRepository;
@@ -30,25 +27,11 @@ public class ReviewService implements CommandLineRunner {
     private BookingRepository bookingRepository;
 
 
-    @Override
-    @Transactional
-    public void run(String... args) throws Exception {
-        Review r = Review.builder()
-                .content("Good Ride")
-                .rating(4.0)
-                 .content("")
-                .createdAt(new Date())
-                .updatedAt(new Date())
-                .build();
-        ArrayList<Long> al = new ArrayList<>(Arrays.asList(1L,2L,3L));
+    public Review publishReview(Review review) {
+        return reviewRepository.save(review);
+    }
 
-       List<Driver> drivers= driverRepository.findAllById(al);
-
-       for(Driver d : drivers){
-            List<Booking> b1= d.getReviews();
-            b1.forEach(b-> System.out.println(b.getId()));
-       }
-        //driverRepository.findById(1L);
-
+    public Optional<Review> findReviewById(Long reviewId) {
+        return reviewRepository.findById(reviewId);
     }
 }

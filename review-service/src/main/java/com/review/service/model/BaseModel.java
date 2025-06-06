@@ -2,6 +2,8 @@ package com.review.service.model;
 
 import jakarta.persistence.*;
 import lombok.*;
+import org.hibernate.annotations.CreationTimestamp;
+import org.hibernate.annotations.UpdateTimestamp;
 import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.annotation.LastModifiedDate;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
@@ -20,10 +22,15 @@ public abstract class BaseModel {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     protected Long id;
 
-    @CreatedDate
+    @CreationTimestamp
     @Temporal(TemporalType.TIMESTAMP) // TemporalType.TIMESTAMP store the date with time
-    @Column(nullable = false)
+    @Column(nullable = false,updatable = false)
     protected Date createdAt;
+
+    @UpdateTimestamp
+    @Temporal(TemporalType.TIMESTAMP)
+    @Column(nullable = false,updatable = false)
+    protected Date updatedAt;
 
     public Long getId() {
         return id;
@@ -49,8 +56,4 @@ public abstract class BaseModel {
         this.id = id;
     }
 
-    @LastModifiedDate
-    @Temporal(TemporalType.TIMESTAMP)
-    @Column(nullable = false)
-    protected Date updatedAt;
 }

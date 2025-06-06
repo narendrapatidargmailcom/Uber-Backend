@@ -1,5 +1,6 @@
 package com.review.service.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
 import lombok.*;
 import org.springframework.data.annotation.CreatedDate;
@@ -27,15 +28,15 @@ public class Review extends BaseModel{
     @JoinColumn(nullable = false)
     private Booking booking;  //
 
-    @LastModifiedDate
-    @Temporal(TemporalType.TIMESTAMP)
-    @Column(nullable = false)
-    protected Date updatedAt;
-
-    @CreatedDate
-    @Temporal(TemporalType.TIMESTAMP) // TemporalType.TIMESTAMP store the date with time
-    @Column(nullable = false)
-    protected Date createdAt;
+//    @LastModifiedDate
+//    @Temporal(TemporalType.TIMESTAMP)
+//    @Column(nullable = false)
+//    protected Date updatedAt;
+//
+//    @CreatedDate
+//    @Temporal(TemporalType.TIMESTAMP) // TemporalType.TIMESTAMP store the date with time
+//    @Column(nullable = false)
+//    protected Date createdAt;
 
 
 
