@@ -2,8 +2,8 @@ package com.auth.service.service;
 
 import com.auth.service.DTOS.PassengerSignupRequest;
 import com.auth.service.DTOS.PassengerSignupResponse;
-import com.auth.service.model.Passenger;
 import com.auth.service.repository.PassengerRepository;
+import com.entity.service.model.Passenger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;

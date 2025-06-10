@@ -1,9 +1,13 @@
-package com.auth.service.model;
+package com.entity.service.model;
+
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.OneToMany;
+import jakarta.persistence.OneToOne;
+import jakarta.validation.constraints.DecimalMax;
+import jakarta.validation.constraints.DecimalMin;
 import lombok.*;
 
 import java.util.ArrayList;
@@ -32,4 +36,17 @@ public class Passenger extends BaseModel {
 
     @OneToMany(mappedBy = "passenger")
     private List<Booking> reviews = new ArrayList<>();
+
+    @OneToOne
+    private Booking activeBooking;
+
+    @DecimalMin(value= "0.00",message="Rating must be ggreter than or equals to 0")
+    @DecimalMax(value= "5.00",message="Rating must be less than or equals to 5")
+    private  double rating;
+
+    @OneToOne
+    private ExactLocation lastKnowlocation;
+
+    @OneToOne
+    private ExactLocation home;
 }

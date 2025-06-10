@@ -12,7 +12,7 @@
         </processorPath>
         <module name="review-service" />
       </profile>
-      <profile name="Annotation profile for auth-service" enabled="true">
+      <profile name="Annotation profile for uber-location-service" enabled="true">
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
@@ -20,7 +20,9 @@
           <entry name="$MAVEN_REPOSITORY$/org/projectlombok/lombok/1.18.38/lombok-1.18.38.jar" />
           <entry name="$MAVEN_REPOSITORY$/org/springframework/boot/spring-boot-configuration-processor/3.5.0/spring-boot-configuration-processor-3.5.0.jar" />
         </processorPath>
+        <module name="uber-entity-service" />
         <module name="auth-service" />
+        <module name="uber-location-service" />
       </profile>
     </annotationProcessing>
   </component>
@@ -28,6 +30,8 @@
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
       <module name="auth-service" options="-parameters" />
       <module name="review-service" options="-parameters" />
+      <module name="uber-entity-service" options="-parameters" />
+      <module name="uber-location-service" options="-parameters" />
     </option>
   </component>
 </project>

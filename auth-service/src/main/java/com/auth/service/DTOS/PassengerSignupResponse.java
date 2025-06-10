@@ -1,6 +1,6 @@
 package com.auth.service.DTOS;
 
-import com.auth.service.model.Passenger;
+import com.entity.service.model.Passenger;
 import lombok.*;
 
 import java.util.Date;

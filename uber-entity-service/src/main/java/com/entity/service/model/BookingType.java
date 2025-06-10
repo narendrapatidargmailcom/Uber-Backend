@@ -1,4 +1,4 @@
-package com.auth.service.model;
+package com.entity.service.model;
 
 public enum BookingType {
 

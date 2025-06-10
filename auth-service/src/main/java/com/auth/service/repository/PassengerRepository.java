@@ -1,7 +1,13 @@
 package com.auth.service.repository;
 
-import com.auth.service.model.Passenger;
+import com.entity.service.model.Passenger;
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
 
+import java.util.Optional;
+
+@Repository
 public interface PassengerRepository extends JpaRepository<Passenger,Long> {
+
+    Optional<Passenger> findPassengerByEmail(String email);
 }
