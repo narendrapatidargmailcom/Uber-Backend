@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Document</title>
+</head>
+<body>
+  <div>
+
+      <h1>
+          Hello World
+      </h1>
+
+      <div>
+        <button onclick="connect()">connect</button>
+      </div>
+
+      <div>
+        <input type="text" id="name">
+        <button onclick="submit()">submit</button>
+      </div>
+
+     <script src="https://cdn.socket.io/4.7.2/socket.io.min.js"></script>
+
+      <script>
+
+         // const socket = io('http://localhost:3000');
+        //   const userId = "312";
+          var stompClient = null;
+            function connect(){
+                const socket = new SockJS("http://localhost:8080/ws");
+                stompClient =  Stomp.over(socket);
+                stompClient.connect({},function()
+                {
+                    console.log("connected");
+                    stompClient.subscribe("/topic/ping",function(message){
+                       console.log("Received message from",message)
+                    })
+                });
+            }
+
+            function submit(){
+                const value=document.getElementById("name").value;
+                stompClient.send("/api/ping",{},JSON.stringify({data : value}));
+            }
+
+      </script>
+  </div>
+
+
+</body>
+</html>

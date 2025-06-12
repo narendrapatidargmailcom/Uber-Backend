@@ -10,6 +10,7 @@
         <option value="$PROJECT_DIR$/uber-location-service/pom.xml" />
         <option value="$PROJECT_DIR$/uber-client-socket-service/pom.xml" />
         <option value="$PROJECT_DIR$/uber-socket-server-service/pom.xml" />
+        <option value="$PROJECT_DIR$/uber-booking-service/pom.xml" />
       </list>
     </option>
   </component>

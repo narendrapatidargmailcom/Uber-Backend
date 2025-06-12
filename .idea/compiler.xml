@@ -12,7 +12,14 @@
         </processorPath>
         <module name="review-service" />
       </profile>
-      <profile name="Annotation profile for uber-location-service" enabled="true">
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="uber-client-socket-service" />
+        <module name="uber-socket-server-service" />
+      </profile>
+      <profile name="Annotation profile for uber-booking-service" enabled="true">
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
@@ -22,14 +29,8 @@
         </processorPath>
         <module name="uber-entity-service" />
         <module name="auth-service" />
+        <module name="uber-booking-service" />
         <module name="uber-location-service" />
-      </profile>
-      <profile name="Maven default annotation processors profile" enabled="true">
-        <sourceOutputDir name="target/generated-sources/annotations" />
-        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
-        <outputRelativeToContentRoot value="true" />
-        <module name="uber-client-socket-service" />
-        <module name="uber-socket-server-service" />
       </profile>
     </annotationProcessing>
   </component>
@@ -37,6 +38,7 @@
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
       <module name="auth-service" options="-parameters" />
       <module name="review-service" options="-parameters" />
+      <module name="uber-booking-service" options="-parameters" />
       <module name="uber-client-socket-service" options="-parameters" />
       <module name="uber-entity-service" options="-parameters" />
       <module name="uber-location-service" options="-parameters" />

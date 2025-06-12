@@ -42,4 +42,6 @@ public class Booking  extends BaseModel{
     @OneToOne
     private ExactLocation endLocation;
 
+    private Double price;
+
 }
